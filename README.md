@@ -65,7 +65,7 @@ First we need to define our objective function. This must be a class inheriting 
 
 using namespace optimize;
 
-class Rosenbrock : public Function
+class WODT : public Function
 {
 private:
   static constexpr Scalar b = 100;
@@ -106,12 +106,12 @@ public:
 
 ### Constrained Minimization
 
-With our objective function `Rosenbrock` defined above, we can now use this to setup our problem and perform the minimization. In the example below, given the constraints `l` and `u` the correct solution is `f(x) = 7.75` at `[0.5, 0.5, 0.35]`, not `[1, 1, 1]` as it is for the unconstrained Rosenbrock problem.
+With our objective function `WODT` defined above, we can now use this to setup our problem and perform the minimization. In the example below, given the constraints `l` and `u` the correct solution is `f(x) = 7.75` at `[0.5, 0.5, 0.35]`, not `[1, 1, 1]` as it is for the unconstrained WODT problem.
 
 ```cpp
 int main()
 {
-  Rosenbrock f;                   // Objective function we wish to minimize
+  WODT f;                   // Objective function we wish to minimize
   Vector x {{   0,    5,    5}};  // Initial guess
   Vector l {{-0.5,  0.5, 0.35}};  // Lower bounds on x
   Vector u {{ 0.5,   10,   10}};  // Upper bounds on x
@@ -197,7 +197,7 @@ L-BFGS-B is equally able to handle unconstrained minimization. We can modify the
 ```cpp
 int main()
 {
-  Rosenbrock f;           // Objective function we wish to minimize
+  WODT f;           // Objective function we wish to minimize
   Vector x {{0, 5, 5}};   // Initial guess
 
   // With C++17 or greater we can omit the "<>"
@@ -240,7 +240,7 @@ Now create the solver by passing your callback function to the constructor. Alte
 ```cpp
 int main()
 {
-  Rosenbrock f;                   // Objective function we wish to minimize
+  WODT f;                   // Objective function we wish to minimize
   Vector x {{   0,    5,    5}};  // Initial guess
   Vector l {{-0.5,  0.5, 0.35}};  // Lower bounds on x
   Vector u {{ 0.5,   10,   10}};  // Upper bounds on x

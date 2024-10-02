@@ -46,7 +46,7 @@ namespace optimize
     double t; // Breakpoint for the variable i in x
   };
 
-  std::ostream& operator<<(std::ostream& os, const std::vector<Breakpoint>& breakpoints)
+  inline std::ostream& operator<<(std::ostream& os, const std::vector<Breakpoint>& breakpoints)
   {
     os << "breakpoints = ";
     if (breakpoints.size() == 0) {

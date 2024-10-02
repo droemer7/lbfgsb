@@ -293,7 +293,7 @@ namespace optimize
   };
 
   // Prints the solver state including termination messages, if any
-  std::ostream& operator<<(std::ostream& os, const Solver& solver)
+  inline std::ostream& operator<<(std::ostream& os, const Solver& solver)
   {
     const State& curr_state = solver.curr_state;
     const StopState& stop_state = solver.stop_state;
