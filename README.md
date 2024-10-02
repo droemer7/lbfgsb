@@ -65,7 +65,7 @@ First we need to define our objective function. This must be a class inheriting 
 
 using namespace optimize;
 
-class WODT : public Function
+class Rosenbrock : public Function
 {
 private:
   static constexpr Scalar b = 100;
@@ -111,7 +111,7 @@ With our objective function `WODT` defined above, we can now use this to setup o
 ```cpp
 int main()
 {
-  WODT f;                   // Objective function we wish to minimize
+  Rosenbrock f;                   // Objective function we wish to minimize
   Vector x {{   0,    5,    5}};  // Initial guess
   Vector l {{-0.5,  0.5, 0.35}};  // Lower bounds on x
   Vector u {{ 0.5,   10,   10}};  // Upper bounds on x
